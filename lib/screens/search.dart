@@ -109,6 +109,10 @@ class Search extends StatelessWidget {
                                             onPressed: () {
                                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Booking(
                                                 name: places[index].name ,
+                                                vicinity: places[index].vicinity,
+                                                 geometry: places[index].geometry.location.lat,
+                                                 geometry1: places[index].geometry.location.lng,
+                                                 rating: places[index].rating,
                                               )));
                                               // _launchMapsUrl(
                                               //     places[index]

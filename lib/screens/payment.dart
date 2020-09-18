@@ -5,8 +5,11 @@ import 'search.dart';
 
 class Booking extends StatefulWidget {
   final name;
-
-  Booking({this.name});
+  final vicinity;
+  final geometry;
+  final geometry1;
+  final rating;
+  Booking({this.name, this.vicinity, this.geometry, this.geometry1, this.rating});
 
   @override
   _BookingState createState() => _BookingState();
@@ -375,7 +378,17 @@ class _BookingState extends State<Booking> {
                           elevation: 6,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                           color: Colors.blue,
-                          onPressed: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Search1())),
+                          onPressed: (){
+                            if(isSelected == true && isBooked == true || isBooked2 == true || isBooked3 == true || isBooked4 == true) {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Info(
+                                name: widget.name,
+                                vicinity: widget.vicinity,
+                                geometry: widget.geometry,
+                                geometry1: widget.geometry1,
+                                rating: widget.rating,
+                              )));
+                            }
+                          },
                           child: Text('Pay',
                             style: TextStyle(color: Colors.white,
                                 fontSize: 16,
